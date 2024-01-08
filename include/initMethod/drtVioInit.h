@@ -66,8 +66,8 @@ namespace DRT {
     public:
 
         std::set<double> local_active_frames;
-        std::map<int, TimeFrameId> int_frameid2_time_frameid;
-        std::map<TimeFrameId, int> time_frameid2_int_frameid;
+        std::map<int, TimeFrameId> int_frameid2_time_frameid;   // ID   --> time
+        std::map<TimeFrameId, int> time_frameid2_int_frameid;   // time --> ID
         Eigen::aligned_map<TimeFrameId, Eigen::Matrix3d> frame_rot;
 
         Eigen::Vector3d biasg;

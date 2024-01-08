@@ -218,6 +218,7 @@ namespace DRT
                 const Eigen::Vector3d &j_coord = track.at(j_view_id).normalpoint;
 
                 // R_i is world to camera i
+                // TODO 这是不写错了，R_is应该是camera i to world
                 const Eigen::Matrix3d &R_i = frame_rot.at(i_view_id);
                 const Eigen::Matrix3d &R_j = frame_rot.at(j_view_id);
                 // camera i to camera j

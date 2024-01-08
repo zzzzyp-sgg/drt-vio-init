@@ -99,7 +99,7 @@ namespace vio {
         Sophus::rightJacobianSO3(phi, rightJ);
         B.block<3, 3>(0, 0) = rightJ * dt;                      // eq.(59)   dphi/deta
 
-        // 2.2 Update rotation jacobian wrt bias correction
+        // 2.2 Update rotation jacobian wrt bias correction(迭代求这个Jacobian)
         // ref: https://github.com/UZ-SLAMLab/ORB_SLAM3/issues/212#issuecomment-745138770
         JRg_ = A.block<3, 3>(0, 0) * JRg_ - B.block<3, 3>(0, 0);
 

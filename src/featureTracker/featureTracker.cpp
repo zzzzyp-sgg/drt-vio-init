@@ -106,7 +106,7 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time) {
     if (forw_img.empty()) {
         prev_img = cur_img = forw_img = img;
     } else {
-        forw_img = img;
+        forw_img = img; // 前一帧(prev)/当前帧(cur)/下一帧(forws)
     }
 
     forw_pts.clear();
@@ -129,7 +129,7 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time) {
         //ROS_DEBUG("temporal optical flow costs: %fms", t_o.toc());
     }
 
-    bflowBack_ = false;
+    bflowBack_ = false; // TODO: 逆向光流都关了？
     if (bflowBack_ && forw_pts.size() > 0) {
         vector<uchar> status;
         vector<float> err;

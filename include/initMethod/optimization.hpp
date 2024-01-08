@@ -37,7 +37,7 @@ public:
         qjk_imu = integrate.dR_.unit_quaternion();
         Eigen::Quaterniond qcjk = _qic.inverse() * qjk_imu;
 
-        //create F things
+        //create F things(公式5、6)
         for (int i = 0; i < bearings1.size(); i++) {
             Eigen::Vector3d f1 = bearings1[i].normalized();
 
@@ -82,6 +82,7 @@ public:
 
         Eigen::Matrix<T, 1, 3> jacobian;
 
+        // 残差具体的计算
         T EV = opengv::GetSmallestEVwithJacobian(
                 xxF_, yyF_, zzF_, xyF_, yzF_, xzF_, cayley, jacobian);
         residual[0] = EV;

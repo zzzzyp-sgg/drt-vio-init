@@ -85,7 +85,7 @@ int main(int argc, char **argv) {
 
             cv::Mat img = vio_dataset->get_image_data(t_ns)[0].image;
 
-            trackerData.readImage(img, t_ns * 1e-9);
+            trackerData.readImage(img, t_ns * 1e-9);    // 读图像和光流放在一起
 
             for (unsigned int i = 0;; i++) {
                 bool completed = false;

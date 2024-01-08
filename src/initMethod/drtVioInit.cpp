@@ -66,6 +66,7 @@ namespace DRT {
         imu_meas.push_back(imuData);
     }
 
+    /// @brief  关键帧判定，没用视差，只用了时间间隔
     bool drtVioInit::addFeatureCheckParallax(TimeFrameId frame_id, const FeatureTrackerResulst &image,
                                              double td) {
 
@@ -188,6 +189,8 @@ namespace DRT {
     }
 
 
+    /// @brief  求解最小二乘问题
+    /// @ref    A. Censi, "An ICP variant using a point-to-line metric," 
     bool drtVioInit::gravityRefine(const Eigen::MatrixXd &M,
                                    const Eigen::VectorXd &m,
                                    double Q,
@@ -343,6 +346,7 @@ namespace DRT {
 
     }
 
+    /// @brief  先求解陀螺零偏，因为松紧组合对陀螺的处理是一样的，所以定义在这里
     bool drtVioInit::gyroBiasEstimator() {
 
         ticToc t_optimize;

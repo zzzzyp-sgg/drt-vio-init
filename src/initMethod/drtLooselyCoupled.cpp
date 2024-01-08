@@ -102,7 +102,7 @@ namespace DRT
 
     bool drtLooselyCoupled::linearAlignment() {
         int all_frame_count = int_frameid2_time_frameid.size();
-        int n_state = all_frame_count * 3 + 3 + 1;
+        int n_state = all_frame_count * 3 + 3 + 1;  // v * 3 + g * 3 + s
 
         MatrixXd A{n_state, n_state};
         A.setZero();
@@ -212,6 +212,7 @@ namespace DRT
             TimeFrameId lbase_view_id = 0;
             TimeFrameId rbase_view_id = 0;
 
+            // 选择局部参考帧
             select_base_views(obs,
                               lbase_view_id,
                               rbase_view_id);

@@ -11,6 +11,8 @@
 
 using namespace std;
 
+/// @brief  这里用的是opengv的源代码
+/// @ref    https://github.com/laurentkneip/opengv/blob/master/src/relative_pose/modules/eigensolver/modules.cpp
 namespace opengv {
 
     static Eigen::Matrix3d ComposeMwithJacobians(
@@ -30,6 +32,7 @@ namespace opengv {
         Eigen::Matrix3d R_jac2;
         Eigen::Matrix3d R_jac3;
 
+        // 每个元素求导
         R_jac1(0, 0) = 2 * cayley[0];
         R_jac1(0, 1) = 2 * cayley[1];
         R_jac1(0, 2) = 2 * cayley[2];
